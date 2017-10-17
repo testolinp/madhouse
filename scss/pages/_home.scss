@@ -1,0 +1,147 @@
+.home {
+  @include size(100% 100vh);
+
+  &__content {
+    @include position(relative, null null null null);
+    @include size(100%);
+    background: url('../images/home.jpg') center center no-repeat;
+    background-size: cover;
+
+    @include breakpoint('medium') {
+      background-image: url('../images/home-large.jpg');
+    }
+  }
+
+  &__data {
+    @include position(absolute, 50% null null 0);
+    transform: translateY(-50%);
+    @include size(100% auto);
+
+    @include breakpoint('large') {
+      @include clearfix;
+    }
+
+    &__lg {
+      text-align: center;
+
+      @include breakpoint('large') {
+        float: left;
+        width: 50%;
+      }
+
+      &:before {
+        font-size: 60vw;
+        color: #eee;
+
+        @include breakpoint('small-extra') {
+          font-size: 70vw;
+        }
+
+        @include breakpoint('medium') {
+          font-size: 400px;
+        }
+
+        @include breakpoint('large') {
+          font-size: 320px;
+        }
+
+        @include breakpoint('extra-large') {
+          font-size: 420px;
+        }
+      }
+    }
+
+    &__text {
+      @include position(relative, null null null null);
+      @include padding(20px null null);
+      @include size(60vw auto);
+      @include margin(0 auto);
+
+      @include breakpoint('medium') {
+        @include size(400px auto);
+      }
+
+      @include breakpoint('large') {
+        float: left;
+        width: 50%;
+        padding-left: 90px;
+      }
+
+      @include breakpoint('extra-large') {
+        padding-top: 55px;
+      }
+
+      &__title {
+        font-family: $secondary-font;
+        font-size: 40px;
+        line-height: 36px;
+        font-weight: 700;
+        color: #eee;
+        letter-spacing: -3px;
+        opacity: 0.9;
+
+        @include breakpoint('small-extra') {
+          font-size: 45px;
+          line-height: 41px;
+        }
+
+        @include breakpoint('medium') {
+          font-size: 65px;
+          line-height: 61px;
+        }
+
+        @include breakpoint('large') {
+          font-size: 90px;
+          line-height: 80px;
+        }
+
+        @include breakpoint('extra-large') {
+          font-size: 120px;
+          line-height: 107px;
+          letter-spacing: -8px;
+        }
+      }
+
+      &__subtitle {
+        @include position(absolute, calc(50% + 2px) null null 95px);
+
+        font-family: $secondary-font;
+        font-size: 10px;
+        line-height: 8px;
+        color: #eee;
+        opacity: 0.9;
+
+        @include breakpoint('small-extra') {
+          left: 105px;
+
+          font-size: 11px;
+          line-height: 9px;
+        }
+
+        @include breakpoint('medium') {
+          left: 160px;
+
+          font-size: 13px;
+          line-height: 11px;
+        }
+
+        @include breakpoint('large') {
+          top: calc(50% - 3px);
+          left: 315px;
+
+          font-size: 18px;
+          line-height: 16px;
+        }
+
+        @include breakpoint('extra-large') {
+          top: calc(50% + 13px);
+          left: 365px;
+
+          font-size: 20px;
+          line-height: 21px;
+          font-weight: 700;
+        }
+      }
+    }
+  }
+}

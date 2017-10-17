@@ -1,0 +1,102 @@
+.about {
+  @include size(100% auto);
+
+  @include breakpoint('medium') {
+    height: 100vh;
+  }
+
+  &__content {
+    @include position(relative, null null null null);
+    @include size(100%);
+    background: url('../images/about.jpg') center center no-repeat;
+    background-size: cover;
+
+    @include breakpoint('medium') {
+      background-image: url('../images/about-large.jpg');
+    }
+  }
+
+  &__data {
+    @include size(100% auto);
+    @include padding(80px 60px 60px 30px);
+
+    @include breakpoint('medium') {
+      @include padding(120px 60px null);
+    }
+
+    @include breakpoint('large') {
+      @include padding(120px 150px null);
+    }
+
+    &__title {
+      @include padding(null null 40px);
+
+      font-family: $main-font;
+      font-size: 45px;
+      line-height: 40px;
+      color: white;
+
+      @include breakpoint('extra-large') {
+        font-size: 60px;
+        line-height: 60px;
+        letter-spacing: -5px;
+      }
+    }
+
+    &__content {
+      @include breakpoint('large') {
+        @include clearfix;
+        max-width: 60%;
+      }
+
+      &__col {
+        @include breakpoint('large') {
+          float: left;
+          width: 50%;
+          @include padding(null 90px null null);
+        }
+
+        p {
+          @include padding(null null 15px);
+
+          font-family: $main-font;
+          font-size: 14px;
+          line-height: 18px;
+          color: white;
+          text-transform: uppercase;
+
+          @include breakpoint('medium') {
+            max-width: 60%;
+          }
+
+          @include breakpoint('large') {
+            max-width: 100%;
+            @include padding(null null 20px);
+
+            font-size: 15px;
+            line-height: 22px;
+          }
+        }
+
+        &:nth-child(1) {
+          p {
+            &:last-child {
+              @include breakpoint('large') {
+                display: none;
+              }
+            }
+          }
+        }
+
+        &:nth-child(2) {
+          p {
+            @include breakpoint('large') {
+              font-size: 10px;
+              line-height: 20px;
+            }
+          }
+        }
+      }
+    }
+  }
+}

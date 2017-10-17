@@ -1,0 +1,67 @@
+.footer {
+  @include position(fixed, null null 0 0);
+  z-index: 10;
+  @include size(100% auto);
+
+  &__content {
+    @include position(relative, null null null null);
+    @include size(100%);
+
+    &__copyright {
+      display: inline-block;
+      @include padding(8px 30px 10px 15px);
+      background: white;
+      @include position(relative, null null null null);
+      z-index: 20;
+
+      font-family: $main-font;
+      font-size: 10px;
+      font-style: italic;
+      color: black;
+
+      @include breakpoint('medium') {
+        @include padding(10px 60px 10px 20px);
+      }
+
+      small {
+        display: none;
+
+        @include breakpoint('medium') {
+          display: inline-block;
+        }
+      }
+    }
+
+    &__social {
+      @include position(absolute, null 0 29px null);
+      @include clearfix;
+
+      @include breakpoint('medium') {
+        right: 35px;
+      }
+
+      &__item {
+        float: left;
+        @include padding(null null null 5px);
+
+        a {
+          display: block;
+          @include position(relative, null null null null);
+          @include size(25px 30px);
+
+          &:before {
+            @include position(absolute, 50% null null 50%);
+            transform: translate(-50%, -50%);
+
+            font-size: 16px;
+            color: white;
+
+            @include breakpoint('large') {
+              font-size: 14px;
+            }
+          }
+        }
+      }
+    }
+  }
+}

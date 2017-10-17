@@ -1,0 +1,155 @@
+.menu {
+  @include position(fixed, 0 null null 0);
+  @include size(100%);
+  z-index: 15;
+  background: rgba(0, 0, 0, 0.96);
+  pointer-events: none;
+  opacity: 0;
+  transition: opacity 0.3s ease-in-out;
+
+  &--open {
+    pointer-events: inherit;
+    opacity: 1;
+  }
+
+  &__close {
+    display: block;
+    @include position(absolute, 10px 20px null null);
+    @include size(40px);
+    z-index: 15;
+
+    @include breakpoint('medium') {
+      top: 20px;
+      right: 30px;
+    }
+
+    &:before {
+      @include position(absolute, 50% null null 50%);
+      transform: translate(-50%, -50%);
+
+      font-size: 18px;
+      color: white;
+    }
+  }
+
+  &__lg {
+    display: none;
+    @include position(absolute, 20px null null 30px);
+    z-index: 20;
+
+    @include breakpoint('medium') {
+      display: block;
+    }
+
+    &:before {
+      font-size: 50px;
+      color: white;
+      transition: color 0.3s ease-in-out
+    }
+
+    &:hover {
+      &:before {
+        @include breakpoint('large') {
+          color: #ddff00;
+        }
+      }
+    }
+  }
+
+  &__name {
+    @include position(absolute, 24px null null 50%);
+    transform: translateX(-50%);
+    z-index: 20;
+
+    font-family: $main-font;
+    font-size: 12px;
+    font-weight: 400;
+    color: white;
+    text-transform: uppercase;
+    letter-spacing: 3px;
+    text-align: center;
+
+    @include breakpoint('medium') {
+      top: 34px;
+    }
+  }
+
+  &__list {
+    @include position(fixed, 50% null null 0);
+    transform: translateY(-50%);
+    @include size(100% auto);
+
+    &__item {
+      @include padding(20px null);
+      text-align: center;
+
+      @include breakpoint('medium') {
+        @include padding(30px null);
+      }
+
+      @include breakpoint('extra-large') {
+        @include padding(15px null);
+      }
+
+      &__link {
+        @include position(relative, null null null null);
+
+        font-family: $main-font;
+        font-size: 50px;
+        color: white;
+        letter-spacing: -2px;
+
+        @include breakpoint('medium') {
+          font-size: 70px;
+        }
+
+        @include breakpoint('extra-large') {
+          font-size: 100px;
+          letter-spacing: -4px;
+        }
+
+        &:before {
+          display: block;
+          content: '';
+          @include position(absolute, null null 0 0);
+          @include size(0% 4px);
+          background: white;
+          transition: width 0.3s ease-in-out;
+        }
+
+        &:hover {
+          &:before {
+            @include breakpoint('large') {
+              width: 100%;
+            }
+          }
+        }
+      }
+    }
+  }
+
+  &__copyright {
+    display: inline-block;
+    @include padding(8px 30px 10px 15px);
+    background: white;
+    @include position(absolute, null null 0 0);
+    z-index: 20;
+
+    font-family: $main-font;
+    font-size: 11px;
+    font-style: italic;
+    color: black;
+
+    @include breakpoint('medium') {
+      @include padding(8px 60px 10px 20px);
+    }
+
+    small {
+      display: none;
+
+      @include breakpoint('medium') {
+        display: inline-block;
+      }
+    }
+  }
+}

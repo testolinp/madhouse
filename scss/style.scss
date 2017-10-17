@@ -1,0 +1,48 @@
+@import "bourbon";
+
+//Global
+@import "reset";
+@import "mixin";
+@import "animations";
+@import "fonts";
+@import "vars";
+
+//Components
+@import "components/header";
+@import "components/footer";
+@import "components/dots";
+@import "components/scroll-down";
+@import "components/menu";
+
+//Pages
+@import "pages/home";
+@import "pages/news";
+@import "pages/news-detail";
+@import "pages/about";
+@import "pages/work";
+@import "pages/contact";
+
+html, body {
+  background: #13101c;
+}
+
+.main {
+  &:before {
+    display: none;
+    content: 'madhouse';
+    @include position(absolute, 50% null null -10px);
+    z-index: 20;
+    transform: translateY(-50%) rotate(-90deg);
+
+    font-family: $main-font;
+    font-size: 10px;
+    font-weight: 100;
+    color: white;
+    text-transform: uppercase;
+    letter-spacing: 6px;
+
+    @include breakpoint('large') {
+      display: block;
+    }
+  }
+}

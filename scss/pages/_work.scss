@@ -1,0 +1,120 @@
+.works {
+  @include size(100% auto);
+
+  @include breakpoint('medium') {
+    height: 100vh;
+  }
+
+  &__content {
+    @include position(relative, null null null null);
+    @include size(100%);
+    @include padding(60px null null);
+    background: black;
+
+    @include breakpoint('large') {
+      @include padding(80px null null);
+    }
+
+    &__list {
+      @include padding(null 30px);
+      background: white;
+
+      @include breakpoint('medium') {
+        @include padding(0);
+        @include clearfix;
+      }
+
+      &__item {
+        width: 100%;
+
+        @include breakpoint('medium') {
+          float: left;
+          @include size(33.33% 33.33vw);
+        }
+
+        @include breakpoint('large') {
+          @include size(20% calc(33.33vh - (80px / 3)));
+        }
+      }
+    }
+  }
+
+  &__box {
+    @include position(relative, null null null null);
+    display: block;
+    @include size(100% 100vw);
+    overflow: hidden;
+
+    @include breakpoint('medium') {
+      @include size(100%);
+    }
+
+    &__image {
+      @include position(absolute, 50% null null 50%);
+      transform: translate(-50%, -50%);
+      @include size(101%);
+      background-position: center center;
+      background-repeat: no-repeat;
+      background-size: cover;
+      transition: all 0.6s ease-in-out;
+    }
+
+    &__data {
+      @include position(absolute, 0 null null 0);
+      @include size(100%);
+      @include padding(30px);
+      background: rgba(0, 0, 0, 0.5);
+
+      @include breakpoint('large') {
+        opacity: 0;
+        transition: opacity 0.4s ease-in-out;
+      }
+
+      &__title {
+        padding-right: 30px;
+
+        font-family: $main-font;
+        font-size: 26px;
+        line-height: 28px;
+        color: white;
+
+        @include breakpoint('medium') {
+          font-size: 20px;
+          line-height: 22px;
+        }
+
+        @include breakpoint('extra-large') {
+          padding-right: 20px;
+
+          font-size: 30px;
+          line-height: 30px;
+          letter-spacing: -1px;
+        }
+      }
+
+      &__view {
+        @include position(absolute, null null 30px 30px);
+
+        font-family: $main-font;
+        font-size: 13px;
+        line-height: 13px;
+        color: white;
+        text-transform: uppercase;
+      }
+    }
+
+    &:hover {
+      .works__box__image {
+        @include breakpoint('large') {
+          @include size(105%);
+        }
+      }
+
+      .works__box__data {
+        @include breakpoint('large') {
+          opacity: 1;
+        }
+      }
+    }
+  }
+}

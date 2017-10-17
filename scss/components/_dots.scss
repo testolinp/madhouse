@@ -1,0 +1,33 @@
+#fp-nav {
+  display: none;
+  z-index: 10;
+
+  @include breakpoint('large') {
+    display: block;
+  }
+
+  &.right {
+    right: 40px;
+  }
+
+  ul {
+    li {
+      @include padding(20px null);
+      @include margin(0);
+
+      a {
+        span {
+          @include size(5px);
+          background: white;
+        }
+
+        &.active {
+          span {
+            @include size(10px);
+            @include margin(-5px 0 0 -5px);
+          }
+        }
+      }
+    }
+  }
+}

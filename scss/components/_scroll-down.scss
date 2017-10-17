@@ -1,0 +1,55 @@
+.scroll-down {
+  display: none;
+  @include position(absolute, null null 60px 50%);
+  z-index: 10;
+  transform: translateX(-50%);
+  opacity: 1;
+  transition: opacity 0.5s ease-in-out;
+
+  @include breakpoint('large') {
+    display: block;
+  }
+
+
+  &--hide {
+    opacity: 0;
+  }
+
+  &__icon {
+    @include position(relative, null null null null);
+    @include size(24px 40px);
+    @include margin(0 auto);
+    border: 2px solid rgba(255, 255, 255, 0.6);
+    border-radius: 15px;
+
+    &:before {
+      display: block;
+      content: '';
+      @include position(absolute, 7px null null 7px);
+      @include size(2px 5px);
+      border: 2px solid rgba(255, 255, 255, 0.6);
+      border-radius: 5px;
+      animation: scrollDown 2.0s ease-in-out infinite;
+    }
+  }
+
+  &__text {
+    @include padding(20px null null);
+
+    font-family: $main-font;
+    font-size: 10px;
+    color: rgba(255, 255, 255, 0.6);
+    text-align: center;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+  }
+}
+
+.fp-viewing-news,
+.fp-viewing-my-work,
+.fp-viewing-about-me,
+.fp-viewing-contact {
+  .scroll-down {
+    opacity: 0;
+  }
+}

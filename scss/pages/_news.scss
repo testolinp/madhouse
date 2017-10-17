@@ -1,0 +1,144 @@
+.news {
+  @include size(100% auto);
+
+  @include breakpoint('medium') {
+    height: 100vh;
+  }
+
+  &__content {
+    @include position(relative, null null null null);
+    @include size(100%);
+    background: url('../images/news.jpg') center center no-repeat;
+    background-size: cover;
+
+    @include breakpoint('medium') {
+      background-image: url('../images/news-large.jpg');
+    }
+  }
+
+  &__data {
+    @include size(100% auto);
+    @include padding(80px 30px null);
+
+    @include breakpoint('medium') {
+      @include padding(120px 30px null);
+    }
+
+    @include breakpoint('large') {
+      @include padding(120px 120px null);
+    }
+
+    &__list {
+
+      @include breakpoint('medium') {
+        max-width: 60%;
+      }
+
+      @include breakpoint('large') {
+        @include clearfix;
+        max-width: 100%;
+      }
+
+      &__item {
+        @include padding(null null 40px);
+
+        @include breakpoint('large') {
+          float: left;
+          width: 50%;
+          @include padding(null 150px 40px 0);
+        }
+
+        @include breakpoint('extra-large') {
+          @include padding(null 300px 40px 0);
+        }
+
+        &:last-child() {
+          padding-bottom: 0;
+        }
+
+        &__link {
+          display: block;
+
+          &:hover {
+            .news__data__list__item__more {
+              &:before {
+                @include breakpoint('large') {
+                  width: 100%;
+                }
+              }
+
+              span {
+                @include breakpoint('large') {
+                  color: white;
+                }
+              }
+            }
+          }
+        }
+
+        &__date {
+          display: inline-block;
+          @include padding(3px 5px 5px);
+          background: black;
+
+          font-family: $main-font;
+          font-size: 12px;
+          font-weight: 100;
+          color: white;
+        }
+
+        &__title {
+          display: block;
+          @include padding(5px null);
+
+          @include breakpoint('extra-large') {
+            height: 71px;
+          }
+
+          h2 {
+            display: inline;
+            @include padding(null 10px null null)
+            background: black;
+
+            font-family: $main-font;
+            font-size: 25px;
+            line-height: 30px;
+            color: white;
+
+            @include breakpoint('extra-large') {
+              width: 360px;
+            }
+          }
+        }
+
+        &__more {
+          @include position(relative, null null null null);
+          display: inline-block;
+          background: white;
+
+          &:before {
+            @include position(absolute, 0 null null 0);
+            display: block;
+            content: '';
+            @include size(0% 100%);
+            background: black;
+            transition: width 0.3s ease-in-out;
+          }
+
+          span {
+            @include position(relative, null null null null);
+            display: inline-block;
+            @include padding(5px 5px 5px);
+
+            font-family: $main-font;
+            font-size: 11px;
+            color: black;
+            font-weight: 700;
+            text-transform: uppercase;
+            transition: all 0.3s ease-in-out;
+          }
+        }
+      }
+    }
+  }
+}

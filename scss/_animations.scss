@@ -1,0 +1,17 @@
+@keyframes scrollDown {
+  0%   {top: 7px;}
+  50%  {top: 20px;}
+  100% {top: 7px;}
+}
+
+@keyframes hambAfter {
+    0% {width: 15px;}
+    50% {width: 26px;}
+    100% {width: 15px;}
+}
+
+@keyframes hambBefore {
+    0% {width: 23px;}
+    50% {width: 26px;}
+    100% {width: 23px;}
+}

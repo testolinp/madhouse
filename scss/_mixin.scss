@@ -1,0 +1,49 @@
+@mixin breakpoint($point, $value: 0) {
+  @if $point == "small" {
+    @media (min-width: 320px) { @content; }
+  }
+
+  @if $point == "small-extra" {
+    @media (min-width: 350px) { @content; }
+  }
+
+  @else if $point == "small-landscape" {
+    @media (min-width: 410px) { @content; }
+  }
+
+  @else if $point == "medium-small" {
+    @media (min-width: 567px) { @content; }
+  }
+
+  @else if $point == "medium" {
+    @media (min-width: 768px) { @content; }
+  }
+
+  // @else if $point == "medium-landscape" {
+  //   @media (min-width: 1024px) { @content; }
+  // }
+
+  @else if $point == "medium-only" {
+    @media (min-width: 768px) and (max-width: 1230px) { @content; }
+  }
+
+  @else if $point == "large" {
+    @media (min-width: 1024px) { @content; }
+  }
+
+  @else if $point == "extra-large" {
+    @media (min-width: 1240px) { @content; }
+  }
+
+  @else if $point == "super-extra-large" {
+    @media (min-width: 1900px) { @content; }
+  }
+
+  @else if $point == "landscape" {
+    @media (min-device-width: 320px) and (max-device-width: 1024px) and (-webkit-min-device-pixel-ratio: 1) and (orientation: landscape) { @content; }
+  }
+
+  @else {
+    @media ($point: $value) { @content; }
+  }
+}

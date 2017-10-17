@@ -1,0 +1,184 @@
+.news-detail {
+  @include position(fixed, 0 null null 0);
+  z-index: 9;
+  @include size(100% 100vh);
+  background: #090909;
+  opacity: 0;
+  transition: opacity 0.5s ease-in-out;
+  pointer-events: none;
+
+  &--show {
+    opacity: 1;
+    pointer-events: inherit;
+  }
+
+  &:before {
+    display: block;
+    content: '';
+    @include position(absolute, null null 0 0);
+    @include size(100% 160px);
+    background: -moz-linear-gradient(top, rgba(9,9,9,0) 0%, rgba(9,9,9,1) 60%, rgba(9,9,9,1) 100%);
+    background: -webkit-linear-gradient(top, rgba(9,9,9,0) 0%,rgba(9,9,9,1) 60%,rgba(9,9,9,1) 100%);
+    background: linear-gradient(to bottom, rgba(9,9,9,0) 0%,rgba(9,9,9,1) 60%,rgba(9,9,9,1) 100%);
+
+    @include breakpoint('medium') {
+      display: none;
+    }
+  }
+
+  &__bg {
+    display: none;
+    @include position(absolute, 0 null null 0);
+    @include size(100%);
+    background-size: cover;
+    background-position: center center;
+    background-repeat: no-repeat;
+
+    @include breakpoint('medium') {
+      display: block;
+    }
+  }
+
+  &__content {
+    @include size(100%);
+    overflow-y: auto;
+
+    @include breakpoint('medium') {
+      @include position(absolute, calc(50% + 40px) null null 160px);
+      transform: translateY(-50%);
+      @include size(480px auto);
+      overflow-y: inherit;
+    }
+
+    &__close {
+      display: none;
+      @include size(30px);
+      transform: rotate(0deg);
+      transition: all 0.3s ease-in-out;
+
+      @include breakpoint('medium') {
+        @include position(relative, 10px null null -20px);
+        display: block;
+      }
+
+      &:before {
+        @include position(absolute, 50% null null 50%);
+        transform: translate(-50%, -50%);
+        font-size: 18px;
+        color: white;
+      }
+
+      &:hover {
+        @include breakpoint('large') {
+          transform: rotate(90deg);
+        }
+      }
+    }
+
+    &__image {
+      @include size(100% 100vw);
+      background-size: cover;
+      background-position: center center;
+      background-repeat: no-repeat;
+
+      @include breakpoint('medium') {
+        display: none;
+      }
+    }
+
+    &__data {
+      @include padding(30px 30px 80px);
+
+      &__date {
+        @include padding(20px null null null);
+        font-family: $main-font;
+        font-size: 13px;
+        line-height: 13px;
+        color: white;
+
+        @include breakpoint('medium') {
+          @include padding(0 null null null);
+
+          font-size: 13px;
+          font-weight: 100;
+        }
+      }
+
+      &__title {
+        @include padding(15px null 25px null);
+
+        font-family: $main-font;
+        font-size: 45px;
+        line-height: 50px;
+        font-weight: 700;
+        color: white;
+
+        @include breakpoint('medium') {
+          @include padding(20px 100px 25px null);
+
+          font-size: 45px;
+          line-height: 45px;
+        }
+
+        @include breakpoint('large') {
+          @include padding(20px 0 25px null);
+        }
+      }
+
+      &__description {
+        font-family: $main-font;
+        font-size: 15px;
+        line-height: 31px;
+        color: white;
+
+        @include breakpoint('medium') {
+          font-size: 13px;
+          line-height: 23px;
+          text-align: justify;
+          text-justify: inter-word;
+        }
+      }
+
+      &__social {
+        @include position(relative, null null null -12px);
+        @include clearfix;
+        @include padding(40px null null);
+
+        @include breakpoint('medium') {
+          @include padding(100px null null);
+        }
+
+        &__item {
+          float: left;
+          @include padding(null null null 5px);
+
+          a {
+            display: block;
+            @include position(relative, null null null null);
+            @include size(30px);
+
+            @include breakpoint('medium') {
+              @include size(40px);
+            }
+
+            &:before {
+              @include position(absolute, 50% null null 50%);
+              transform: translate(-50%, -50%);
+
+              font-size: 16px;
+              color: white;
+
+              @include breakpoint('medium') {
+                font-size: 22px;
+              }
+
+              @include breakpoint('large') {
+                font-size: 18px;
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}
