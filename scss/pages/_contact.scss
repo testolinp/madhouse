@@ -6,10 +6,13 @@
   }
 
   &__content {
-    @include position(relative, null null null null);
-    @include size(100%);
+    @include position(absolute, 50% null null 50%);
+    transform: translate(-50%, -50%);
+    @include size(90% 85%);
     background: url('../images/contact.jpg') center center no-repeat;
     background-size: cover;
+    overflow: hidden;
+    transition: all 0.5s ease-in-out 0.4s;
 
     @include breakpoint('medium') {
       background-image: url('../images/contact-large.jpg');
@@ -19,6 +22,8 @@
   &__data {
     @include size(100% auto);
     @include padding(80px 60px 60px 30px);
+    opacity: 0;
+    transition: opacity 0.5s ease-in-out 0.9s;
 
     @include breakpoint('medium') {
       @include padding(120px 60px null);
@@ -70,6 +75,52 @@
           line-height: 22px;
         }
       }
+
+      &__mail {
+        @include position(relative, null null null null);
+        display: inline-block;
+
+        &:before {
+          @include position(absolute, 0 null null 0);
+          display: block;
+          content: '';
+          @include size(0% 100%);
+          background: white;
+          transition: width 0.3s ease-in-out;
+        }
+
+        span {
+          @include position(relative, null null null null);
+          transition: all 0.3s ease-in-out;
+          display: inline-block;
+          @include padding(null 0px);
+        }
+
+        &:hover {
+          &:before {
+            @include breakpoint('large') {
+              width: 100%;
+            }
+          }
+
+          span {
+            @include breakpoint('large') {
+              color: black;
+              @include padding(null 5px);
+            }
+          }
+        }
+      }
+    }
+  }
+
+  &.active {
+    .contact__content {
+      @include size(100%);
+    }
+
+    .contact__data {
+      opacity: 1;
     }
   }
 }

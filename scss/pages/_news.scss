@@ -6,10 +6,13 @@
   }
 
   &__content {
-    @include position(relative, null null null null);
-    @include size(100%);
+    @include position(absolute, 50% null null 50%);
+    transform: translate(-50%, -50%);
+    @include size(90% 85%);
     background: url('../images/news.jpg') center center no-repeat;
     background-size: cover;
+    overflow: hidden;
+    transition: all 0.5s ease-in-out 0.4s;
 
     @include breakpoint('medium') {
       background-image: url('../images/news-large.jpg');
@@ -19,6 +22,8 @@
   &__data {
     @include size(100% auto);
     @include padding(80px 30px null);
+    opacity: 0;
+    transition: opacity 0.5s ease-in-out 0.9s;
 
     @include breakpoint('medium') {
       @include padding(120px 30px null);
@@ -139,6 +144,16 @@
           }
         }
       }
+    }
+  }
+
+  &.active {
+    .news__content {
+      @include size(100%);
+    }
+
+    .news__data {
+      opacity: 1;
     }
   }
 }

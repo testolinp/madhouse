@@ -2,10 +2,13 @@
   @include size(100% 100vh);
 
   &__content {
-    @include position(relative, null null null null);
-    @include size(100%);
+    @include position(absolute, 50% null null 50%);
+    transform: translate(-50%, -50%);
+    @include size(90% 85%);
     background: url('../images/home.jpg') center center no-repeat;
     background-size: cover;
+    overflow: hidden;
+    transition: all 0.5s ease-in-out 0.4s;
 
     @include breakpoint('medium') {
       background-image: url('../images/home-large.jpg');
@@ -16,6 +19,8 @@
     @include position(absolute, 50% null null 0);
     transform: translateY(-50%);
     @include size(100% auto);
+    opacity: 0;
+    transition: opacity 0.5s ease-in-out 0.9s;
 
     @include breakpoint('large') {
       @include clearfix;
@@ -142,6 +147,16 @@
           font-weight: 700;
         }
       }
+    }
+  }
+
+  &.active {
+    .home__content {
+      @include size(100%);
+    }
+
+    .home__data {
+      opacity: 1;
     }
   }
 }
