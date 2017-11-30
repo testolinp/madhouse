@@ -3,16 +3,18 @@
 
   @include breakpoint('medium') {
     height: 100vh;
+    overflow: hidden;
   }
 
   &__content {
     @include position(absolute, 50% null null 50%);
     transform: translate(-50%, -50%);
-    @include size(90% 85%);
+    //@include size(90% 85%);
+    @include size(110%);
     background: url('../images/about.jpg') center center no-repeat;
     background-size: cover;
     overflow: hidden;
-    transition: all 0.5s ease-in-out 0.4s;
+    transition: all 0.8s ease-in-out 0.3s;
 
     @include breakpoint('medium') {
       background-image: url('../images/about-large.jpg');
@@ -23,7 +25,7 @@
     @include size(100% auto);
     @include padding(80px 60px 60px 30px);
     opacity: 0;
-    transition: opacity 0.5s ease-in-out 0.9s;
+    transition: opacity 0.5s ease-in-out 0.1s;
 
     @include breakpoint('medium') {
       @include padding(120px 60px null);
@@ -112,6 +114,7 @@
 
     .about__data {
       opacity: 1;
+      transition-delay: 1s;
     }
   }
 }

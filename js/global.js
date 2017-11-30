@@ -1,7 +1,7 @@
 $(function() {
   $(window).setBreakpoints({
   // use only largest available vs use all available
-  	distinct: true,
+  	//distinct: true,
   // array of widths in pixels where breakpoints
   // should be triggered
     breakpoints: [
@@ -14,12 +14,9 @@ $(function() {
     $.fn.fullpage.setResponsive(true);
   });
 
-
   $(window).bind('enterBreakpoint1024',function() {
     $.fn.fullpage.setResponsive(false);
   });
-
-  var a = false;
 
   $('#fullpage').fullpage({
     navigation: true,
@@ -62,6 +59,27 @@ $(function() {
     e.preventDefault();
 
     $('.news-detail').removeClass('news-detail--show');
+    $('.scroll-down').removeClass('scroll-down--hide');
+  });
+
+  //NEWS DETAIL
+  //show
+  $('.works__box').on('click', function(e) {
+    e.preventDefault();
+
+    $('body').addClass('gl-black');
+
+    $('.work-detail').addClass('work-detail--show');
+    $('.scroll-down').addClass('scroll-down--hide');
+  });
+
+  //close
+  $('.header__content__back').on('click', function(e) {
+    e.preventDefault();
+
+    $('body').removeClass('gl-black');
+
+    $('.work-detail').removeClass('work-detail--show');
     $('.scroll-down').removeClass('scroll-down--hide');
   });
 });

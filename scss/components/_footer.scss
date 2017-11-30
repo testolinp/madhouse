@@ -13,6 +13,7 @@
       background: white;
       @include position(relative, null null null null);
       z-index: 20;
+      transition: all 0.3s ease-in-out;
 
       font-family: $main-font;
       font-size: 10px;
@@ -33,7 +34,7 @@
     }
 
     &__social {
-      @include position(absolute, null 0 29px null);
+      @include position(absolute, null 20px 29px null);
       @include clearfix;
 
       @include breakpoint('medium') {
@@ -52,12 +53,35 @@
           &:before {
             @include position(absolute, 50% null null 50%);
             transform: translate(-50%, -50%);
+            transition: all 0.3s ease-in-out;
 
             font-size: 16px;
             color: white;
 
             @include breakpoint('large') {
               font-size: 14px;
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
+.gl-black {
+  .footer {
+    &__content {
+      &__copyright {
+        background: black;
+
+        color: white;
+      }
+
+      &__social {
+        &__item {
+          a {
+            &:before {
+              color: black;
             }
           }
         }
